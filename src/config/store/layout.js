@@ -1,0 +1,21 @@
+export const layout = {
+  state:{
+    lightMode:true,
+    menu:false,
+    loading:false,
+  },
+  getters:{
+    get_loading:state=>state.loading,
+    get_lightMode:(state)=>state.lightMode,
+    get_Menu:(state)=>state.menu,
+  },
+  mutations:{
+    set_loading:(state,v)=>state.loading=v,
+    set_lightMode:(state,v)=>state.lightMode=v,
+    set_Menu:(state,v)=>state.menu=v
+  },actions:{
+    toggleMenu({commit,state}){
+      commit("set_Menu",!state.menu)
+    }
+  }
+}

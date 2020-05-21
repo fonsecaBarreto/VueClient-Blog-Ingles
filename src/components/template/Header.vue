@@ -1,33 +1,32 @@
 <template>
-  <header class="header">
-    <div class="app-container  header-container ">
+  <header class="header" :class="{light,'whiterize':get_Menu}">
+    <div class="app-container  header-container">
       
-      <div class="brand " href="">
+      <div class="brand" href="">
         <router-link to="/">
           <img class="" src="../../assets/logo.png" alt="">
         </router-link>
+       
       </div>
 
-
       <nav class="right-nav ">
-          <pages-nav class="pages-nav"></pages-nav>
-        <div class="toggle-button ">
+          <pages-nav class="pages-nav" :white="light"></pages-nav>
+        <div class="toggle-button " @click='toggleMenu()'>
           <font-awesome-icon icon="bars"></font-awesome-icon>
         </div>
 
         <button-a project round 
           @click.native="logmein()"
-          v-show="get_user === null" class="botao-do-aluno">Área do aluno
+          v-if="get_user === null && light != true" class="botao-do-aluno">Área do aluno
         </button-a>
 
 
-        <div v-show="get_user !== null" class="dropbox-field">
-          <font-awesome-icon icon="bell" class="notifications-icon"></font-awesome-icon>
+        <div v-if="get_user !== null && light != true && get_screenWidth > 960" class="dropbox-field ml-4">
             <image-vp :round="true" w="40px" h="40px"></image-vp>
-            <drop-down>
+            <drop-down >
                <router-link to="/logout">logout</router-link>
-               <router-link to="/perfil">Perfil</router-link>
-               <router-link to="/perfil">activities</router-link>
+               <router-link to="/aluno/conteudos">Area do Aluno</router-link>
+    
             </drop-down>
         </div>
 
@@ -43,15 +42,22 @@ import ButtonA from "../ButtonA"
 import {mapGetters} from "vuex"
 import DropDown from "../utils/Dropdown"
 import ImageVp from "../utils/ImageVp"
-import PagesNav from "../pages/home/PagesNav"
+import PagesNav from "./PagesNav"
 export default {
   components:{ButtonA,DropDown,ImageVp,PagesNav},
-  computed:{...mapGetters(["get_user"])},
+  props:{
+    light:{type:Boolean,default:false}
+  },
+  computed:{...mapGetters(["get_user","get_Menu","get_screenWidth"])},
   methods:{
     logmein(){
       this.$emit("logmein")
+    },
+    toggleMenu(){
+      this.$store.dispatch("toggleMenu")
     }
   }
+  
 }
 </script>
 
@@ -59,18 +65,29 @@ export default {
 /* header */
 header.header{
   height: 70px;
-  background-color: rgb(242, 242, 242);
-  box-shadow: inset 0px 2px 12px #0001;
+  background-color: rgb(240, 240, 240);
+  box-shadow:  0px 2px 8px #0001;
   border-bottom: solid 1px #ddd;
   position: relative;
-
+  transition:  width .12s;;
+  z-index: 999;
 }
+header.header.light.whiterize{
+ background-color: rgb(240, 240, 240);
+}
+header.header.light{
+  width: 100%;
+  background-color: rgba(126, 44, 44, 0);
+  box-shadow:  none;
+  border: none;
+} 
 .header-container{
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  padding: 0 16px;
 }
 /*  right*/
 .right-nav{
@@ -86,29 +103,20 @@ header.header{
   word-break: keep-all;
 }
 .toggle-button {
-  height: 56px;
-  width:56px;
+  height: 42px;
+  width:42px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.7em;
+  font-size: 1.4em;
   color:#222;
   display: none;
-}
-@media screen and (max-width: 900px) {
-    .toggle-button {
-      display: flex;
-    }
-    .botao-do-aluno{
-      display: none;
-    }
-    .pages-nav{
-      display: none;
-    }
+  border-radius: 6px;
+  transition: all .06s;
 }
 .toggle-button:hover{color: #444;}
-.toggle-button:active{color: white;background-color: rgba(0,0,0,.5);}
+.toggle-button:active{color: white;background-color: rgba(0,0,0,.7);}
 .notifications-icon{
   height: 48px;
   width: 48px;
@@ -132,6 +140,29 @@ header.header{
 }
 .brand img{
   height: 50px;
+    -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 960px) {
+  header.header{
+    height: 52px;
+  }
+  .toggle-button {display: flex;}
+  .botao-do-aluno{display: none;}
+  .pages-nav{display: none;}
+  .brand{height: 56px;}
+  .brand img{height: 32px;}
+  header.header.light .brand{
+    display: none;
+  }
+  header.header.light{
+    position: absolute!important;
+  } 
 }
 
 </style>

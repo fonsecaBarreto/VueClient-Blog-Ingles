@@ -15,8 +15,10 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
+    "swal": "^0.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
+    "vue-swal": "^1.0.0",
     "vuex": "^3.3.0"
   },
   "devDependencies": {
@@ -40,7 +42,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-unused-vars": "off",
+      "vue/no-unused-components": "off"
+    }
   },
   "browserslist": [
     "> 1%",

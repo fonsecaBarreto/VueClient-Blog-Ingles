@@ -1,6 +1,6 @@
 <template>
 <div :class="{w100}">
-  <div class="image-vp" :style="estilo" :class="{'round':round}">
+  <div class="image-vp " :style="estilo" :class="{'round':round}">
    <img :src="src" :srcset="srcsetString" alt="">
   </div>
 </div>

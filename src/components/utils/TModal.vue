@@ -1,18 +1,13 @@
 <template>
     <transition name="fade">
         <div class="t-modal" v-show="show" >
-            <div class="modal-content" :class="[size,position]">
-                <div class="modal-header ">
-                    <span class="modal-title unselectable">{{title}}</span>
+            <div class="modal-content ">
+               <div class="modal-header">
                     <span class="modal-close unselectable" @click="close()"> 
-                    <font-awesome-icon icon="times"></font-awesome-icon>
+                        <font-awesome-icon icon="times"></font-awesome-icon>
                     </span>
                 </div>
-                <div class="modal-body">
-                    <slot>
-                        
-                    </slot>
-                </div>
+                <slot></slot>  
             </div>
         </div>
   </transition>
@@ -20,41 +15,16 @@
 
 <script>
 export default {
-    mounted(){
-        this.gone()
-    },
     props:{
         show:{type:Boolean,default:true},
         title:{type:String,default:""},
-        size:{type:String,default:"lg"},
-        timer:{type:Number,default:null},
-        pos:{type:Number,default:0}
-    },
-    computed:{
-       position(){
-           var v = "top"
-           switch(this.pos){
-               case 0 : v = "top"; break;
-               case 1 : v= "center"; break;
-           }
-           return v;
-        }
+        timer:{type:Number,default:null}
     },
     methods:{
         close(){ this.$emit("close")},
-        gone(){
-            if(this.timer)
-            setTimeout(()=>{this.close()},this.timer)}
-    },
-    watch: {
-        show: function (novo) {
-            if(novo === true) this.gone()
-        },
-        timer:function(novo){
-            if(novo!=undefined) this.gone();
-        }
-  },
-   
+
+    }
+ 
 }
 </script>
 
@@ -63,63 +33,55 @@ export default {
     .t-modal{
         position: fixed;
         top: 0;left:0;
-        width: 100%;
-        height:100vh;
-        background-color: rgba(0, 0, 0,.3);
-        z-index: 99999;
+        width: 100%;height:100%;
+        z-index: 999999;
         overflow: auto;
-    }
-    .modal-content{
-        width: fit-content;
-        background-color: #0000;
-        box-shadow: 0px 4px 9px #0003;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: flex-start;
-        border: none;
-        overflow: hidden;
+        background-color: rgb(0, 0, 0,.3);
+ 
+    }
+    .modal-content{
+        margin-top: 64px;
+        min-width: 300px;
+        min-height: 300px;
+        width: fit-content;
+        height: fit-content;
+        background-color: rgb(241, 239, 239)(245, 243, 243);
+        box-shadow: 0px 4px 12px #0004;
+    }
+    @media screen and (max-width: 756px) {
+        .modal-content{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        } 
     }
     .modal-close{
-        
-        padding: 8px 16px;
+      
         cursor: pointer;
         font-size: 1em;
-        position: absolute;
-        right: 0;
-        top:0;
-    }
-    .modal-close:active{ color: rgb(219, 17, 17);}
+        margin-right: 0;
+        margin-left: auto;
+        height: 36px;
+        width: 36px;
+        padding: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }.modal-close:active{ color: rgb(219, 17, 17);}
+    
     .modal-header{
         width: 100%;
         height: fit-content;
-        padding: 10px 12px;
-        border-bottom: none;
-        position: absolute;
-        z-index: 999999;
+        z-index: 1;
+        padding: 0;
     }
-    .modal-title{
-        font-size: 1.2em;
-    }
-    .modal-body{
-        position: relative;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-       padding: 0px;
-    }
-     .unselectable {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+
+    /* transtition */
     .fade-enter-active, .fade-leave-active {transition: opacity .4s;}
     .fade-enter, .fade-leave-to {opacity: 0;}
-    .top{ margin: 82px auto !important; }
-    .center{ margin: 25vh auto !important; }
-    .sm{max-width: 360px; min-width: 240px; min-height: 96px;}
-    .md{max-width: 520px; min-width: 360px; min-height: 182px;}
-    .lg{max-width: 960px; min-width: 520px; min-height: 360px;}
 </style>

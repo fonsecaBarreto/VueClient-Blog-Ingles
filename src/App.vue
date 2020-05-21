@@ -1,57 +1,53 @@
 <template>
   <div id="app" class="">
-    <main-template>
-      <transition  name="fade" mode="out-in" >
-        <router-view>
-        </router-view>
-      </transition> 
-    </main-template>
+    <router-view name="templatelayout">
+        <transition  name="fade" mode="out-in" >
+          <router-view name="content"></router-view>
+        </transition> 
+    </router-view>
   </div>
 </template>
 
 <script>
-import MainTemplate from "./components/template/Main"
+
 export default {
   name: 'App',
-  components: {MainTemplate},
   created() {
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
-  destroyed() {
-      window.removeEventListener('resize', this.handleResize);
-  },
+  destroyed() {window.removeEventListener('resize', this.handleResize);},
   methods: {
-      handleResize() {
-        this.$store.commit("set_screenWidth",window.innerWidth)
-      }
+    handleResize() {
+      this.$store.commit("set_screenWidth",window.innerWidth)
+    }
   }
 }
 </script>
 
 <style>
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: "GothamMedium", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    color: #444;
     height: 100vh;
     width: 100vw;
+    overflow: auto;
   }
   .app-container{
-    max-width: 1220px;
+    max-width: 1224px;
     margin: auto;
     padding: 0 24px;
   }
-  @font-face {
-    font-family: "GothamMedium";
-    src: url("./assets/GothamMedium.ttf");
+  @media screen and (max-width: 960px) {
+    .app-container{
+      padding: 0 8px;
+    }
   }
-  *{
-    font-family: 'GothamMedium', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  .status{
+    font-size: .8em;
+    color: #858585;
   }
+
 </style>
