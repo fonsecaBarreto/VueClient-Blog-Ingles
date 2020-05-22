@@ -2,7 +2,7 @@
   <div class="flat">
     <image-vp w="90px" pb="100%" :src="image" :class="{'hold':image==null}"></image-vp>
     <div class="flat-body ">
-      <router-link @click.native="setLoading()" :to="'articles/' + article.path" class="title" :class="{'hold':article==null}" >{{article.title}}</router-link>
+      <router-link  :to="'articles/' + article.path" class="title" :class="{'hold':article==null}" >{{article.title}}</router-link>
       <div class="footer ">
         <span  class="category" >
           <font-awesome-icon icon="tag"></font-awesome-icon>

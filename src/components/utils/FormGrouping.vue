@@ -46,10 +46,10 @@ export default {
     } 
     .solid  input[type="text"], .solid input[type="password"], .solid input[type="number"], .solid textarea, .solid select{
         border: 1pt solid #aaa;
-        background: #eee;
+        background: #f3f3f3;
         color: #222;
-        border-radius: 6px; 
-        padding: 8px;
+        border-radius: 5px; 
+        padding: 9px;
         
     }
 

@@ -43,38 +43,45 @@ export default {
     position: absolute;
     bottom: 0;left: 0; right: 0;
     margin: auto;
-    width: 320px;
-    height: 250px;
+    width: 360px;
+    height: 288px;
     background-color: rgba(255,255,255,.55);
     border-radius: 8px;
     transform: rotate(12deg);
+    box-shadow: 2px 6px 8px #00000016;
+
 }
 .right .right-content:after{
     content: "";
     position: absolute;
     bottom: 0;left: 0; right: 0;
     margin: auto;
-    width: 320px;
-    height: 250px;
+    width: 360px;
+    height: 288px;
      background-image: url("../../../assets/bg4.jpg");
     border-radius: 8px;
+    box-shadow: 1px 3px 8px #0003;
+    border: solid 6px white;
+  
 }
 .right-vp{
   overflow: hidden;
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   border-radius: 8px;
   position: relative;
   z-index: 1;
+
 }
 .right-vp img{
   height: 100%;
   position: absolute;
-  bottom: 0;
-  right:0;
+  bottom: 6px;
+  right:6px
+  
 }
  @media only screen and (max-width: 1024px) {
-   .right{ min-width: unset}
+    .right{ min-width: unset}
     .right .right-content{
       transform: translateY(0);
       padding-top: 16px;
@@ -84,19 +91,31 @@ export default {
  @media only screen and (max-width: 480px) {
  
     .right-vp{
+      width: 300px;
+      height: 300px;
+    }
+    .right .right-content:before{
+      width: 300px;
+      height: 240px;
+    }
+    .right .right-content:after{
+        width: 300px;
+        height: 240px;
+    }
+  }
+ @media only screen and (max-width: 375px) {
+ 
+    .right-vp{
       width: 250px;
       height: 250px;
     }
     .right .right-content:before{
-
       width: 250px;
       height: 200px;
- 
     }
     .right .right-content:after{
         width: 250px;
         height: 200px;
-
     }
   }
 </style>

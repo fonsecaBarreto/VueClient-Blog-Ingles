@@ -1,13 +1,13 @@
 <template>
-  <div id="top" ref="top" class="article-screen" v-if="loading!=true">
+  <div id="top" ref="top" class="article-screen" >
     <div class="app-container">
       <Blog>
         <transition  name="fade" mode="out-in" >
-          <Article :data="post" v-if="loading!=true"></Article>
+          <Article :data="post" v-if="content==true"></Article>
         </transition>
 
        <!--  A -->
-        <recommended-flow v-if="!loading" id="recommended" :path="path"></recommended-flow>
+        <recommended-flow  id="recommended" :path="path"></recommended-flow>
         <div class="mt-3">
          <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
         </div>
@@ -26,26 +26,23 @@ components:{Article,Blog,RecommendedFlow},
   data(){
    return {
      post:null,
-     loading:true ,
- 
+     content:true
    }
   }, 
   computed:{
    path(){return this.$route.params.path},
   },
 
- async mounted(){
-   this.post = await this.$store.dispatch("loadPost",this.path);
-   this.$store.commit("set_loading",false)
-   this.loading=false;
-
-   
+  mounted(){
+   this.$store.dispatch("loadPost",this.path)
+   .then(posts=>this.post = posts)
+  
  },
  watch:{
    async path(newval){
-     this.loading=true;
+     this.content=false;
      this.post = await this.$store.dispatch("loadPost",newval);
-     this.loading=false;
+     this.content=true;
    }
  }
 }

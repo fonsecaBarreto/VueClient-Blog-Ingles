@@ -1,10 +1,10 @@
 <template>
-  <div class="category bd-red" v-if="loading != true">
+  <div class="category bd-red" >
     <div class="app-container ">
       <Blog class="">
         <span class="article-breads "> Categorias &rtri; {{categoryPath}} </span>
         <transition name="fade">
-          <div class="posts-flow bd-red" v-if="!loading">
+          <div class="posts-flow bd-red">
         
               <c-post-item v-for="(c,i) in posts" :key="i" :post="c"></c-post-item> 
         
@@ -24,13 +24,11 @@ export default {
   components:{Blog,CPostItem},
   data(){
     return{
-      loading:true,
       posts:null
     }
   },
   async mounted(){
     this.posts = await this.$store.dispatch("loadPostsFromCategory",this.categoryPath);
-    this.loading=false;
  },
  computed:{
    ...mapGetters(["getCategoriesByPath"]),

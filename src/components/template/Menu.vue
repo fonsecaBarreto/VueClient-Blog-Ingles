@@ -33,7 +33,6 @@ export default {
   computed:{...mapGetters(["get_Menu","get_user"])},
   methods:{
    logmein(){
-     console.log("logmeininin")
       this.$emit("logmein")
     },
   }

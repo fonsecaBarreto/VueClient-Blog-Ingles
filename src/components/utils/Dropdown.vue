@@ -31,6 +31,8 @@ export default {
   .dropdown-body{
     right: 0;
     top:40px;
+    border-radius: 3px;
+    box-shadow: 0px 12px 8px #00000019;
     position: absolute;
     width: fit-content;
     padding: 10px 16px;
@@ -42,6 +44,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    white-space: nowrap;
+   
   }
   .dropdown-body *{
     padding: 4px 6px;

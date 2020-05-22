@@ -2,7 +2,7 @@
     <div class="pop-item-container bd-red">
 
       <div class="pop-item bd-blue" v-if="data!= null">
-          <router-link :to="'/articles/' + data.path+'#app'" class="title" >{{data.title}}</router-link>
+          <router-link :to="'/articles/' + data.path" class="title" >{{data.title}}</router-link>
           <div class="footer ">
             <span  class="category">
               <font-awesome-icon icon="tag"></font-awesome-icon>

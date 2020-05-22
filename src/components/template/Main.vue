@@ -1,19 +1,18 @@
 <template>
-  <div class="mainLayout" :class="{'light':get_lightMode}" >
+  <div class="mainLayout bd-red" :class="{'light':get_lightMode}" >
    
     <app-header @logmein="loginModal=true" :light="get_lightMode"></app-header>
-    <main class="content" :class="{'loading':get_loading}">
+    <main class="content bd-green"  v-show="get_loading != true">
       <slot></slot>
-       
     </main>
 
-    <app-footer :light="get_lightMode"></app-footer>
+    <app-footer :light="get_lightMode"  v-if="get_loading != true"></app-footer>
     <app-modal :show="loginModal" @close="loginModal=false">
       <app-login @closeModal="loginModal=false"></app-login>
     </app-modal>
  
-  <app-menu @logmein="loginModal=true"></app-menu>
-
+    <app-menu @logmein="loginModal=true"></app-menu>
+    <div class="loading-div" v-if="get_loading == true"></div>
     
   </div>
 </template>
@@ -44,7 +43,21 @@ export default {
 </script>
 
 <style>
+  .loading-div{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 247, 247, 0.4);
+    background-image: url("../../assets/loading.svg");
+    background-repeat: no-repeat;
+    background-size: 180px;
+    background-position: center;
+    z-index: 9999;
+  }
   .mainLayout{
+    
     height: 100%;
     width: 100%;
     display: grid;
@@ -55,7 +68,10 @@ export default {
   }
   .mainLayout header.header{ grid-area: header;}
   .mainLayout footer.footer{ grid-area: footer;}
-  .mainLayout main.content{grid-area: content;position: relative; }
+  .mainLayout main.content{
+    grid-area: content;
+
+    }
 
   .mainLayout.light{
     grid-template-columns: 1fr;

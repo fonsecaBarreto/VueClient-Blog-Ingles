@@ -2,7 +2,7 @@
     <div class="px-2 px-md-0">
          <h3 class="custom-header">
            <font-awesome-icon icon="hashtag" class="icon"></font-awesome-icon>
-            Nós Siga</h3>
+            Siga-nos</h3>
 
           <social-media  class="" instagram  :path="instagram">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }"/>

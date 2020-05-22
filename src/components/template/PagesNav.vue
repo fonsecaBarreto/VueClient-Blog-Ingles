@@ -1,5 +1,5 @@
 <template>
-  <nav class="pagesNav " :class="{white}">
+  <nav class="pagesNav " >
     <router-link to="/home" tag="span" class="page-item">Inicio</router-link>
     <router-link to="/exclusivo" tag="span" class="page-item">Exclusivo</router-link>
     <router-link to="/curso" tag="span" class="page-item">Curso</router-link>

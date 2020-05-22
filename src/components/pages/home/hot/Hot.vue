@@ -4,8 +4,8 @@
       <div class="hot">
       
         <hot-item :data="a" v-for="(a,i) in hotArticles" :key="i"  
-        :large="i<1 || get_screenWidth < 756 && i<2" 
-        :flat=" (get_screenWidth >756  && i>=1) || (get_screenWidth < 756 && i>1)">
+          :large="i<1 || get_screenWidth < 756 && i<2" 
+          :flat=" (get_screenWidth >756  && i>=1) || (get_screenWidth < 756 && i>1)">
         </hot-item> 
       </div>
   </div> 

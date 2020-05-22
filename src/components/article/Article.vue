@@ -21,9 +21,8 @@
 import ImageVp from "../utils/ImageVp"
 import ArticleHeader from "./ArticleHeader"
 import {mapGetters} from "vuex"
-import { VueEditor } from 'vue2-editor'
 export default {
-  components:{ArticleHeader,ImageVp,VueEditor},
+  components:{ArticleHeader,ImageVp},
   props:{data:{type:Object,default:null}},
   methods:{
     async vote(vote){

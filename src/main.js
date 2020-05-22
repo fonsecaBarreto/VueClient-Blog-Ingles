@@ -13,6 +13,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from "./config/store/store"
 import router from "./config/router"
+import VuePageTransition from 'vue-page-transition'
+
+Vue.use(VuePageTransition)
 Vue.filter("dateformat",
     (dataInput)=>{
       const data = new Date(dataInput);

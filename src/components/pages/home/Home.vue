@@ -22,15 +22,15 @@ export default {
 </script>
 
 <style>
+.home{
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 960px) {
   .home{
-    width: 100%;
-    height: 100%;
+    margin-top: 72px;
   }
-  @media screen and (max-width: 960px) {
-    .home{
-      margin-top: 72px;
-    }
-  }
+}
 .home-body{
   width: 100%;
   display: grid;

@@ -1,17 +1,22 @@
 <template>
-  <div id="app" class="">
-    <router-view name="templatelayout">
-        <transition  name="fade" mode="out-in" >
-          <router-view name="content"></router-view>
-        </transition> 
+  <div id="app" class="bd-blue">
+ 
+    <router-view name="templatelayout" >
+      <vue-page-transition name="fade">
+        <router-view name="content" >
+        </router-view>
+      </vue-page-transition>
+
     </router-view>
+  
   </div>
 </template>
 
 <script>
-
+import {mapGetters} from "vuex"
 export default {
   name: 'App',
+  computed:{...mapGetters(["get_loading"])},
   created() {
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
@@ -26,7 +31,9 @@ export default {
 </script>
 
 <style>
+
   #app {
+    position: relative;
     font-family: "GothamMedium", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

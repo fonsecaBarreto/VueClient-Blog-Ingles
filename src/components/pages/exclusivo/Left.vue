@@ -66,28 +66,35 @@ export default {
   
     }
   .hightlight{
-    font-weight: 500;
+    font-weight: 600;
     font-family: "gothamUltra";
-    color: #193D89;
-    font-size: 1.1em;
- 
+    color:white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #193D89;
+    font-size: 1em;
+    letter-spacing: 2px;
+
   }
   .hightlight1{
     font-weight: 600;
     font-family: "gothamUltra";
+ 
     color: #E41311;
-    font-size: 1.1em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #193D89;
+    font-size: 1em;
+    letter-spacing: 2px;
   }
   .left .left-content{
     max-width: 700px;
     width: 100%;
   }
   .left #enunciado{
-      color: white;
+      color: #193D89;
       margin-bottom: 22px;
       font-size: 1.8em;
       text-transform: uppercase;
-      text-shadow: 0px 1px 2px #000d;
+      text-shadow: 0px 1px 1px #0003;
   }
   .cad-button{
     margin-right: 0;

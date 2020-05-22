@@ -10,23 +10,22 @@
       </div>
 
       <nav class="right-nav ">
-          <pages-nav class="pages-nav" :white="light"></pages-nav>
+        <pages-nav class="pages-nav" :white="light"></pages-nav>
         <div class="toggle-button " @click='toggleMenu()'>
           <font-awesome-icon icon="bars"></font-awesome-icon>
         </div>
 
         <button-a project round 
           @click.native="logmein()"
-          v-if="get_user === null && light != true" class="botao-do-aluno">Área do aluno
+          v-if="get_user === null " class="botao-do-aluno">Área do aluno
         </button-a>
 
 
-        <div v-if="get_user !== null && light != true && get_screenWidth > 960" class="dropbox-field ml-4">
-            <image-vp :round="true" w="40px" h="40px"></image-vp>
+        <div v-if="get_user !== null && get_screenWidth > 960" class="dropbox-field ml-4">
+            <profile-avatar :user="get_user"></profile-avatar>
             <drop-down >
                <router-link to="/logout">logout</router-link>
-               <router-link to="/aluno/conteudos">Area do Aluno</router-link>
-    
+               <router-link to="/">Area do Aluno</router-link>
             </drop-down>
         </div>
 
@@ -43,8 +42,9 @@ import {mapGetters} from "vuex"
 import DropDown from "../utils/Dropdown"
 import ImageVp from "../utils/ImageVp"
 import PagesNav from "./PagesNav"
+import ProfileAvatar from "../utils/ProfileAvatar"
 export default {
-  components:{ButtonA,DropDown,ImageVp,PagesNav},
+  components:{ButtonA,DropDown,ImageVp,PagesNav,ProfileAvatar},
   props:{
     light:{type:Boolean,default:false}
   },

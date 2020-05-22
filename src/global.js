@@ -3,7 +3,7 @@ module.exports={
   API_URL:"http://54.146.113.102:9000",
 /*   API_URL:"http://localhost:9000", */
   STORAGE_KEY:"mlins_website",
-  facebook:"/asdas",
+  facebook:"https://www.facebook.com/inglescommathews/",
   instagram:"https://www.instagram.com/inglescommathews/?hl=pt-br",
-  youtube:"/asdas"
+  youtube:"https://www.youtube.com/channel/UCvI5bGcpK_rMdie2gK2-0rg"
 }

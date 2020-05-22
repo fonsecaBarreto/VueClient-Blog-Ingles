@@ -15,17 +15,19 @@ const privatePages = ["/perfil", "/aluno/conteudos"]; // means thar it will be r
 async function rotine(to,from,next){
   if(store.getters["get_lightMode"] == true) store.commit("set_lightMode",false);
   if(store.getters["get_Menu"] == true) store.commit("set_Menu",false);
-
+  if(store.getters["get_loading"] == false) store.commit("set_loading",true)
+  
   if(!publicPages.includes(to.path)){
-    //if neither publioc or private it will pass to verification
     const err = await store.dispatch("verifyToken");
     if(privatePages.includes(to.path)){
       if(err) return next("/home");
     }
   }next()
 }
+
 async function logout(to,from,next){
   await store.dispatch("clearStorage");
+  if(store.getters["get_loading"] == true) store.commit("set_loading",false)
   next("/")
 }
 const routes = [
@@ -37,13 +39,15 @@ const routes = [
   {path:"/category/:path",components:{templatelayout:MainTemplate,content:Category  }},
   {path:"*",component:NotFound}
 ]
-const scrollBehavior = (to, from, savedPosition)=>{
-  return{x:0,y:0}
-}
+
 const router = new VueRouter({
   routes,
   mode:"history",
-  scrollBehavior
+  
 });
+router.afterEach(() => {
+  if(store.getters["get_loading"] == true) store.commit("set_loading",false)
+  window.scrollTo(0, 0)
+})
 router.beforeEach(rotine)
 export default router

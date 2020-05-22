@@ -70,7 +70,8 @@ export default {
       else if(err == undefined){
         this.$emit("closeModal")
         this.inputs = this.inputs = {...INITIAL_INPUTS};
-        window.location.href="https://aluno.mathewslins.com/"
+        
+        //window.location.href="https://aluno.mathewslins.com/"
       }
     },
   }

@@ -34,9 +34,7 @@ export default {
       return this.get_screenWidth;
     },
     style(){
-      return{
-        left:`${(Math.ceil(this.width/4)*this.passo)}px`
-      }
+      return{ left:`${(Math.ceil(this.width/4)*this.passo)}px`}
     }
   },
   data(){
@@ -51,16 +49,19 @@ export default {
   async mounted(){
     this.posts = await this.$store.dispatch("loadRecommended",this.path);
     this.total = this.posts != null ? this.posts.length : 0;
-    this.$nextTick(()=>{
-      this.width = this.$refs.recommended.clientWidth;
-    })
+    if(this.total > 0){
+      this.$nextTick(()=>{
+        this.width = this.$refs.recommended.clientWidth;
+     })
+    }
   },
   watch:{
-    screenWidth () {
-      this.width = this.$refs.recommended.clientWidth;
+    screenWidth () {this.width = this.$refs.recommended.clientWidth;},
+    async path(newval){
+      this.posts = await this.$store.dispatch("loadRecommended",this.path);
+      this.total = this.posts != null ? this.posts.length : 0;
     }
-  }
- 
+ }
 
 }
 </script>
