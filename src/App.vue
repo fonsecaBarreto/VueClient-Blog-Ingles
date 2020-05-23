@@ -1,14 +1,11 @@
 <template>
   <div id="app" class="bd-blue">
- 
     <router-view name="templatelayout" >
       <vue-page-transition name="fade">
         <router-view name="content" >
         </router-view>
       </vue-page-transition>
-
     </router-view>
-  
   </div>
 </template>
 

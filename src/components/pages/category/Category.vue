@@ -31,7 +31,6 @@ export default {
     this.posts = await this.$store.dispatch("loadPostsFromCategory",this.categoryPath);
  },
  computed:{
-   ...mapGetters(["getCategoriesByPath"]),
    categoryPath(){return this.$route.params.path},
  },
  watch:{

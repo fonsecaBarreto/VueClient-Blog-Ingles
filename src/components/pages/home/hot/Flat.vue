@@ -1,12 +1,12 @@
 <template>
   <div class="flat">
-    <image-vp w="90px" pb="100%" :src="image" :class="{'hold':image==null}"></image-vp>
+    <image-vp w="90px" pb="100%" :srcset="article.picture" sizes="90px" ></image-vp>
     <div class="flat-body ">
-      <router-link  :to="'articles/' + article.path" class="title" :class="{'hold':article==null}" >{{article.title}}</router-link>
+      <router-link  :to="'articles/' + article.path" class="title" >{{article.title}}</router-link>
       <div class="footer ">
-        <span  class="category" >
+        <span  class="category" v-if="article.categoryname!= null">
           <font-awesome-icon icon="tag"></font-awesome-icon>
-          <span class="ml-1" v-if="article.category!= null">{{getCategoryName(article.category)}}</span>
+          <span class="ml-1" >{{article.categoryname}}</span>
         </span>
         <span class="date" >{{article.publication_date | dateformat}} </span>
       </div> 
@@ -28,12 +28,6 @@ export default {
   computed:{
     ...mapGetters(["getCategoriesByID","get_screenWidth"]),
 
-  },
-  methods:{
-      getCategoryName(id){
-        const cat = this.getCategoriesByID(id);
-        return  cat != null ? cat.name : null
-      }
   }
 }
 </script>
@@ -68,12 +62,6 @@ export default {
     border-radius: 2px;
     transition: all .5s;
   }
-  .flat:hover::before{
-    
-    transform: rotate(0deg) translateY(0px) ;
-   
-  }
-
   @media screen and (max-width: 756px) {
     .flat {
       padding: 4px 4px 0 0;

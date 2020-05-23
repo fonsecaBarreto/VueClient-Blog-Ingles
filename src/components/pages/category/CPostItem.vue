@@ -2,9 +2,11 @@
   <div>
     <div class="category-post bd-blue">
       <router-link :to="'/articles/'+post.path">
-        <div class="image-vp">
-            <img class="image" :src="post.picture.sm" alt=""> 
-        </div>
+
+      
+     
+             <image-vp :srcset="post.picture" w="100%" pb="100%"></image-vp>
+       
         
        <!--  <span class="title">{{post.title}}=</span> -->
          <div class="footer ">
@@ -22,7 +24,9 @@
 </template>
 
 <script>
+import ImageVp from "../../utils/ImageVp"
 export default {
+  components:{ImageVp},
   props:{post:{type:Object,default:null}}
 }
 </script>
@@ -65,19 +69,7 @@ export default {
     z-index: -1;
     border-radius: 2px;
   }
-  .image-vp{
-     width: 100%;
-      padding-bottom: 100%;
-      position: relative;
-  }
-  .category-post .image-vp>.image{
-    position: absolute;
-    top:0;bottom:0;
-    left:0;right:0;
-    object-fit: cover;
-    margin: auto;
-    height: 100%;
-  }
+ 
   .category-post .title{
     margin-top: 2px;
     font-family: "GothamMedium";

@@ -27,13 +27,14 @@ import FeedLoading from "./FeedLoading"
 export default {
   components:{FeedItem,ButtonA,FeedLoading},
   computed:{...mapGetters(["getFeed","getFeedConfig"])},
-  async created () {
+  async mounted () {
     this.loadFeed();
   },
   methods: {
     async loadFeed(){
       const err = await this.$store.dispatch("loadFeed")
       if(err) alert("Alguma coisa está errada! :(  \n Recarregue a pagina por favor!")
+     
     },
     mais(){this.loadFeed() }
   

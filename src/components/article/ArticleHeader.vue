@@ -1,8 +1,8 @@
 <template>
   <div class="article-header" v-if="data != null">
-      <span class="article-breads ">{{data.category}} &rtri; {{data.path}}</span>
+      <span class="article-breads ">{{data.categoryname}} &rtri; {{data.path}}</span>
 
-          <span class="article-category"> <font-awesome-icon icon="tag" class="icon"></font-awesome-icon> {{data.category}}</span>
+          <span class="article-category"> <font-awesome-icon icon="tag" class="icon"></font-awesome-icon> {{data.categoryname}}</span>
             <span class="article-title ">{{data.title}}</span>
           <author-view :author="data.author" :date="data.publication_date"></author-view>
         

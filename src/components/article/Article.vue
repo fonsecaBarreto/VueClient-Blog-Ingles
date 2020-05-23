@@ -1,10 +1,10 @@
 <template>
 
     <div class="article bd-green" v-if="data != null">
-        <article-header :data="data"></article-header>
+       <article-header :data="data"></article-header>
        <div class="article-description"> 
             <div>
-            <image-vp class="article-image" :src="data.picture.sm"  w="240px" pb="240px"> </image-vp>
+            <image-vp class="article-image" :srcset="data.picture" sizes="360px" w="240px" pb="240px"> </image-vp>
            </div>   
             <span class="article-description-text">
               {{data.description}}

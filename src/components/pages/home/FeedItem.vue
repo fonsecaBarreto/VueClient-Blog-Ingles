@@ -4,19 +4,18 @@
         <router-link to="/" tag="span">
           <image-vp 
           
-          :w="get_screenWidth > 756 ? '180px' : '100px'" 
-          :h="get_screenWidth > 756 ? '180px' : '100px'" 
-          
-           :src="(data.picture  && data.picture.sm) ? data.picture.sm : null"></image-vp>
+            :w="get_screenWidth > 756 ? '180px' : '100px'" 
+            :h="get_screenWidth > 756 ? '180px' : '100px'" 
+            :srcset="data.picture" sizes="240px"></image-vp>
         </router-link>
         <div class="feed-item-body bd-blue">
             <router-link :to="'articles/' + data.path" class="title bd-red" >{{data.title}}</router-link>
             <span class="description bd-green" v-show="get_screenWidth > 756 "> {{data.description}}</span>
-            <div class="footer bd-red">
+            <div class="footer bd-red  mb-md-1" >
 
-              <span  class="category">
+              <span  class="category" v-if="data.categoryname != null">
                 <font-awesome-icon icon="tag"></font-awesome-icon>
-                <span class="ml-1" v-if="data!= null && data.category != null">{{ getCategoryName(data.category) }}</span>
+                <span class="ml-1" >{{ data.categoryname }}</span>
               </span>
               <span class="date mr-0 ml-auto">{{data.publication_date | dateformat}} </span>
             </div>
@@ -32,14 +31,7 @@ import ImageVp from "../../utils/ImageVp"
 export default {
   components:{ImageVp},
   props:{data:{type:Object,default:null}},  
-  computed:{...mapGetters(["getCategoriesByID","get_screenWidth"])
-  },
-  methods:{
-      getCategoryName(id){
-      const cat = this.getCategoriesByID(id);
-      return  cat != null ? cat.name : null
-    }
-  }
+  computed:{...mapGetters(["getCategoriesByID","get_screenWidth"])},
 }
 </script>
 
@@ -56,20 +48,20 @@ export default {
   padding: 0 22px;
   position: relative;
   height: 180px;
-   background-color: rgba(255,255,255,.4);
-    box-shadow: 0px 2px 5px #0001;
+  background-color: rgba(255,255,255,.4);
+  box-shadow: 0px 2px 5px #0001;
 }
 .feed-item::before{
-    content: "";
-    position: absolute;
-    left: 6px;
-    width: 98%;
-    height: 92%;
-    background-color: #f2f2f2;
-    transform: rotate(-2deg) translateY(3px); 
-    z-index: -1;
-    border-radius: 2px;
-  }
+  content: "";
+  position: absolute;
+  left: 6px;
+  width: 98%;
+  height: 92%;
+  background-color: #f2f2f2;
+  transform: rotate(-2deg) translateY(3px); 
+  z-index: -1;
+  border-radius: 2px;
+}
 
 .feed-item-body{
   position: relative;

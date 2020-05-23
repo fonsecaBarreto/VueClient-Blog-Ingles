@@ -8,9 +8,7 @@
 
        <!--  A -->
         <recommended-flow  id="recommended" :path="path"></recommended-flow>
-        <div class="mt-3">
-         <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
-        </div>
+  
     
       </Blog>
     </div> 
@@ -40,6 +38,7 @@ components:{Article,Blog,RecommendedFlow},
  },
  watch:{
    async path(newval){
+     console.log(newval)
      this.content=false;
      this.post = await this.$store.dispatch("loadPost",newval);
      this.content=true;

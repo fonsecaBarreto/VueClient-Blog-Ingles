@@ -56,7 +56,11 @@ export default {
     }
   },
   watch:{
-    screenWidth () {this.width = this.$refs.recommended.clientWidth;},
+    screenWidth () {
+      if(this.posts != null)
+        this.width = this.$refs.recommended.clientWidth;
+      
+      },
     async path(newval){
       this.posts = await this.$store.dispatch("loadRecommended",this.path);
       this.total = this.posts != null ? this.posts.length : 0;

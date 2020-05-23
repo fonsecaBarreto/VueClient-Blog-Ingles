@@ -4,9 +4,9 @@
       <div class="pop-item bd-blue" v-if="data!= null">
           <router-link :to="'/articles/' + data.path" class="title" >{{data.title}}</router-link>
           <div class="footer ">
-            <span  class="category">
-              <font-awesome-icon icon="tag"></font-awesome-icon>
-              <span class="ml-1" v-if="data!= null && data.category != null">{{ getCategoryName(data.category) }}</span>
+            <span  class="category" v-if="data.categoryname != null">
+              <font-awesome-icon icon="tag" class="status"></font-awesome-icon>
+              <span class="ml-1" >{{ data.categoryname }}</span>
             </span>
 
             <div class="mr-0 ml-auto d-flex ">
@@ -27,12 +27,6 @@ import {mapGetters} from "vuex"
 export default {
   props:{data:{type:Object,default:null}},  
   computed:{...mapGetters(["getCategoriesByID","get_screenWidth"])},
-  methods:{
-      getCategoryName(id){
-        const cat = this.getCategoriesByID(id);
-        return  cat != null ? cat.name : null
-      }
-  }
 }
 </script>
 

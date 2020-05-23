@@ -1,7 +1,7 @@
 <template>
 <div :class="{w100}">
   <div class="image-vp " :style="estilo" :class="{'round':round}">
-   <img :src="src" :srcset="srcsetString" alt="">
+    <img :src="src" :srcset="srcsetString" alt=""  :sizes="sizes">
   </div>
 </div>
 </template>
@@ -9,8 +9,10 @@
 <script>
 export default {
     props:{
+        widths:{type:Array,default:()=>([240,360,480])},
+        sizes:{type:String,default:"360px"},
         round:Boolean,
-        src:{type:String,default: require("./empty.jpg")},
+        src:{type:String,default: require("./empty.svg")},
         srcset:{type: Object, default: null},
         w100:{type:Boolean,default:false},
         h:{type:String,default:"64px"},
@@ -29,12 +31,10 @@ export default {
             var srcsetstring = null;
             if(this.srcset != null){
                 srcsetstring =`
-                    ${this.srcset.sm} 100w,
-                    ${this.srcset.md} 100w,
-                    ${this.srcset.lg} 100w,
-                `
-            }
-  
+                    ${this.srcset.sm} ${this.widths[0]}w,
+                    ${this.srcset.md} ${this.widths[1]}w,
+                    ${this.srcset.lg} ${this.widths[2]}w,` 
+                }
             return srcsetstring;
         }
     }

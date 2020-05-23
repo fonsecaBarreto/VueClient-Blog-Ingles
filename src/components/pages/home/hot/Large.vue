@@ -1,15 +1,16 @@
 <template>
   <div class="hot-large bd-blue">
- 
-
-
-    <img class="hot-large-image bd-red" :src="image" alt="">
+    <div class="hot-large-image bd-red">
+        <image-vp class="article-image" :srcset="article.picture" sizes="360px" w="100%" pb="100%" > </image-vp>
+    </div>
+<!-- 
+ <img class="hot-large-image bd-red" :src="image" alt="">  -->
     <div class="hot-large-body">
       <router-link :to="'articles/' + article.path" class="title " >{{article.title}}</router-link> 
       <div class="footer ">
-        <span  class="category">
+        <span  class="category" v-if="article.categoryname!= null">
           <font-awesome-icon icon="tag"></font-awesome-icon>
-          <span class="ml-1" v-if="article.category!= null">{{ getCategoryName(article.category) }}</span>
+          <span class="ml-1" >{{article.categoryname}}</span>
         </span>
       <span class="date">{{article.publication_date | dateformat}} </span> 
       </div> 
@@ -20,21 +21,16 @@
 </template>
 
 <script>
-
+import ImageVp from "../../../utils/ImageVp"
 import {mapGetters} from "vuex"
 export default {
-
+  components:{ImageVp},
   props:{
     article:{type:Object,default:null},
     image:{type:String,default:null}
   },  
   computed:{...mapGetters(["getCategoriesByID","get_screenWidth"]),},
-  methods:{
-      getCategoryName(id){
-        const cat = this.getCategoriesByID(id);
-        return  cat != null ? cat.name : null
-      }
-  }
+
 }
 </script>
 
@@ -78,18 +74,20 @@ export default {
   }
 
   .hot-large-body {
-   background: rgb(0,0,0);
-background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-   
-   width: 100%;
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+      
+    width: 96%;
     min-height: 64px;
     max-height: 96px;
     position: absolute;
     bottom: 0;
     left:0;
+    right: 0;
+    margin: auto;
     display:flex;
     flex-direction: column;
     padding: 8px 6px;
