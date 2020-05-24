@@ -8,6 +8,7 @@ import Category from "../components/pages/category/Category"
 import NotFound from "../components/pages/NotFound"
 import Exclusivo from "../components/pages/exclusivo/Exclusivo" 
 import MainTemplate from "../components/template/Main"
+import Curso from "../components/pages/curso/Curso"
 /*  */
 import store from './store/store'
 const publicPages = ["/","/logout"]; // means the its not going to pass form a guard
@@ -16,7 +17,6 @@ async function rotine(to,from,next){
   if(store.getters["get_lightMode"] == true) store.commit("set_lightMode",false);
   if(store.getters["get_Menu"] == true) store.commit("set_Menu",false);
   if(store.getters["get_loading"] == false) store.commit("set_loading",true)
-  
   if(!publicPages.includes(to.path)){
     const err = await store.dispatch("verifyToken");
     if(privatePages.includes(to.path)){
@@ -33,6 +33,8 @@ async function logout(to,from,next){
 const routes = [
   {path:"/",redirect:"/home"},
   {path:"/logout",beforeEnter:logout},
+
+  {path:"/curso",          components:{templatelayout:MainTemplate,content:Curso      }},
   {path:"/home",          components:{templatelayout:MainTemplate,content:Home      }},
   {path:"/exclusivo",     components:{templatelayout:MainTemplate,content:Exclusivo }},
   {path:"/articles/:path",components:{templatelayout:MainTemplate,content:Article   }},

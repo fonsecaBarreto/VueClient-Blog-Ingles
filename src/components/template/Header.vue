@@ -25,7 +25,7 @@
             <profile-avatar :user="get_user"></profile-avatar>
             <drop-down >
                <router-link to="/logout">logout</router-link>
-               <router-link to="/">Area do Aluno</router-link>
+               <a href="https://aluno.mathewslins.com">Area do Aluno</a>
             </drop-down>
         </div>
 

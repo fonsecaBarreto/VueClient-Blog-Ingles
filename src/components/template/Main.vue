@@ -61,7 +61,7 @@ export default {
     height: 100%;
     width: 100%;
     display: grid;
-    overflow-anchor: auto;
+    overflow-y: scroll;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header" "content" "footer";
@@ -89,7 +89,8 @@ export default {
       }
       .mainLayout header.header{ position: fixed;top: 0;left: 0;z-index: 9999;width: 100%;}
           
-    }
+  }
+
   .content.loading{opacity: .3;}
   .content.loading:after{
     content: "";

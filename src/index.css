@@ -46,22 +46,33 @@
   font-family: "gothamUltra";
   src: url("./assets/gotham-ultra.otf");
 }
+
+@font-face {
+  font-family: "GothaProLig";
+  src: url("./assets/GothaProLig.otf");
+}
 *{
   font-family: 'GothamMedium', Arial, sans-serif;
   box-sizing: border-box;
 }
-::-webkit-scrollbar-track {
-  background-color: #F4F4F4;
-}
+
 ::-webkit-scrollbar {
-  width: 9px;
-  background: #bbb;
-  border-radius: 5px;
+  width: 12px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 5px;
+  background: #ccccccff;
 }
+@media only screen and (max-width:960px){
+  ::-webkit-scrollbar {
+ 
+    width: 5px;
+  }
+}
+
+
+
+
 /*  .bd-red{border: solid 2px red;}
 .bd-green{border: dashed 2px green;}
 .bd-yellow{border: solid 3px yellow;}
