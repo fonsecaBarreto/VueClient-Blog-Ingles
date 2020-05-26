@@ -19,7 +19,7 @@
              
             <transition name="slide">
               <form-grouping class="mt-2"  >
-                <button-a project 
+                <button-a project  w100
                 @click.native="signin()">Entrar</button-a>
               </form-grouping>
             </transition>
@@ -126,7 +126,7 @@ export default {
     height: fit-content;
     min-height: 200px;
     border-radius: 3px;
-    box-shadow:inset  0px 4px 12px #0001;
+    box-shadow:inset  0px 4px 16px #00000008;
     z-index: 99;
     display: flex;
     flex-direction: column;

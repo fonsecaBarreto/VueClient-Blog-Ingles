@@ -7,6 +7,7 @@ import Article from "../components/pages/article/ArticleScreen"
 import Category from "../components/pages/category/Category"
 import NotFound from "../components/pages/NotFound"
 import Exclusivo from "../components/pages/exclusivo/Exclusivo" 
+import Sobre from "../components/pages/sobre/Sobre" 
 import MainTemplate from "../components/template/Main"
 import Curso from "../components/pages/curso/Curso"
 /*  */
@@ -34,9 +35,10 @@ const routes = [
   {path:"/",redirect:"/home"},
   {path:"/logout",beforeEnter:logout},
 
-  {path:"/curso",          components:{templatelayout:MainTemplate,content:Curso      }},
+  {path:"/curso",          components:{templatelayout:MainTemplate,content:Curso    }},
   {path:"/home",          components:{templatelayout:MainTemplate,content:Home      }},
   {path:"/exclusivo",     components:{templatelayout:MainTemplate,content:Exclusivo }},
+  {path:"/sobre",     components:{templatelayout:MainTemplate,content:Sobre }},
   {path:"/articles/:path",components:{templatelayout:MainTemplate,content:Article   }},
   {path:"/category/:path",components:{templatelayout:MainTemplate,content:Category  }},
   {path:"*",component:NotFound}

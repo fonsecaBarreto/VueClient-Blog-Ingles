@@ -57,9 +57,9 @@ export default {
   left: 6px;
   width: 98%;
   height: 92%;
-  background-color: #f2f2f2;
+  background-color: #f3f3f3;
   transform: rotate(-2deg) translateY(3px); 
-  z-index: -1;
+
   border-radius: 2px;
 }
 

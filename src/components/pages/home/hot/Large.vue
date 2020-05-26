@@ -2,20 +2,19 @@
   <div class="hot-large bd-blue">
     <div class="hot-large-image bd-red">
         <image-vp class="article-image" :srcset="article.picture" sizes="360px" w="100%" pb="100%" > </image-vp>
-    </div>
-<!-- 
- <img class="hot-large-image bd-red" :src="image" alt="">  -->
-    <div class="hot-large-body">
-      <router-link :to="'articles/' + article.path" class="title " >{{article.title}}</router-link> 
-      <div class="footer ">
-        <span  class="category" v-if="article.categoryname!= null">
-          <font-awesome-icon icon="tag"></font-awesome-icon>
-          <span class="ml-1" >{{article.categoryname}}</span>
-        </span>
-      <span class="date">{{article.publication_date | dateformat}} </span> 
-      </div> 
-    </div>  
+   
 
+      <div class="hot-large-body">
+        <router-link :to="'articles/' + article.path" class="title " >{{article.title}}</router-link> 
+        <div class="footer ">
+          <span  class="category" v-if="article.categoryname!= null">
+            <font-awesome-icon icon="tag"></font-awesome-icon>
+            <span class="ml-1" >{{article.categoryname}}</span>
+          </span>
+        <span class="date">{{article.publication_date | dateformat}} </span> 
+        </div> 
+      </div>  
+  </div>
 
   </div>
 </template>
@@ -64,34 +63,36 @@ export default {
     top: 0;bottom:0;left: 0;right: 0;margin: auto;
     object-fit: cover;
   } 
-  @media screen and (max-width: 756px) {
-    .hot-large{
-      position: relative;
-      width: 100%;
-      padding-bottom: 100%;
-    }
  
-  }
 
   .hot-large-body {
     background: rgb(0,0,0);
     background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-      
-    width: 96%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);  
+    width: 100%;
     min-height: 64px;
     max-height: 96px;
     position: absolute;
-    bottom: 0;
+    bottom: -8px;
     left:0;
-    right: 0;
+    right:0;
     margin: auto;
     display:flex;
     flex-direction: column;
     padding: 8px 6px;
-    
+  }
+   @media screen and (max-width: 756px) {
+    .hot-large{
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+    .hot-large-body {
+      bottom: 0px;
+    }
+ 
   }
   .hot-large-body >.title{
     font-size: 1em;

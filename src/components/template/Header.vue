@@ -1,50 +1,55 @@
 <template>
   <header class="header" :class="{light,'whiterize':get_Menu}">
-    <div class="app-container  header-container">
+    <div class="app-container">
       
-      <div class="brand" href="">
-        <router-link to="/">
-          <img class="" src="../../assets/logo.png" alt="">
-        </router-link>
-       
-      </div>
+    
+    <div class="header-container bd-red">
 
-      <nav class="right-nav ">
-        <pages-nav class="pages-nav" :white="light"></pages-nav>
-        <div class="toggle-button " @click='toggleMenu()'>
+        <div class="toggle-button bd-red" @click='toggleMenu()'>
           <font-awesome-icon icon="bars"></font-awesome-icon>
         </div>
-
-        <button-a project round 
-          @click.native="logmein()"
-          v-if="get_user === null " class="botao-do-aluno">Área do aluno
-        </button-a>
-
-
-        <div v-if="get_user !== null && get_screenWidth > 960" class="dropbox-field ml-4">
-            <profile-avatar :user="get_user"></profile-avatar>
-            <drop-down >
-               <router-link to="/logout">logout</router-link>
-               <a href="https://aluno.mathewslins.com">Area do Aluno</a>
-            </drop-down>
+   
+      
+        <div class="brand" href="">
+          <router-link to="/">
+            <img class="" src="../../assets/logo.png" alt="">
+          </router-link>
         </div>
 
-      </nav>
+        <nav class="right-nav bd-red">
+          <pages-nav class="pages-nav mr-4" :white="light"></pages-nav>
+          
 
+          <project-button  class="" v-if="get_user === null "  @click="logmein()">
+            <span v-if="get_screenWidth > 960">Área do aluno </span>
+            <font-awesome-icon icon="user" v-if="get_screenWidth < 960"></font-awesome-icon>
+          </project-button> 
+
+
+          <div v-if="get_user !== null " class="dropbox-field">
+              <profile-avatar :user="get_user"></profile-avatar>
+              <drop-down >
+                <router-link to="/logout">logout</router-link>
+                <a href="https://aluno.mathewslins.com">Area do Aluno</a>
+              </drop-down>
+          </div> 
+
+        </nav> 
+      </div>
     </div>
   
   </header>
 </template>
 
 <script>
-import ButtonA from "../ButtonA"
+import ProjectButton from "../utils/ProjectButton"
 import {mapGetters} from "vuex"
 import DropDown from "../utils/Dropdown"
 import ImageVp from "../utils/ImageVp"
 import PagesNav from "./PagesNav"
 import ProfileAvatar from "../utils/ProfileAvatar"
 export default {
-  components:{ButtonA,DropDown,ImageVp,PagesNav,ProfileAvatar},
+  components:{ProjectButton,DropDown,ImageVp,PagesNav,ProfileAvatar},
   props:{
     light:{type:Boolean,default:false}
   },
@@ -64,7 +69,7 @@ export default {
 <style scoped>
 /* header */
 header.header{
-  height: 70px;
+  height: fit-content;
   background-color: rgb(240, 240, 240);
   box-shadow:  0px 2px 8px #0001;
   border-bottom: solid 1px #ddd;
@@ -72,9 +77,7 @@ header.header{
   transition:  width .12s;;
   z-index: 999;
 }
-header.header.light.whiterize{
- background-color: rgb(240, 240, 240);
-}
+header.header.light.whiterize{background-color: rgb(240, 240, 240);}
 header.header.light{
   width: 100%;
   background-color: rgba(126, 44, 44, 0);
@@ -82,8 +85,9 @@ header.header.light{
   border: none;
 } 
 .header-container{
-  height: 100%;
+  height: 70px;
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -91,17 +95,13 @@ header.header.light{
 }
 /*  right*/
 .right-nav{
+  width: fit-content;
   display: flex;
   margin-right: 0;
   margin-left: auto;
   align-items: center;
 }
-.botao-do-aluno{
-  height: 36px;
-  width: 200px;
 
-  word-break: keep-all;
-}
 .toggle-button {
   height: 42px;
   width:42px;
@@ -112,7 +112,7 @@ header.header.light{
   font-size: 1.4em;
   color:#222;
   display: none;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all .06s;
 }
 .toggle-button:hover{color: #444;}
@@ -149,20 +149,21 @@ header.header.light{
 }
 
 @media screen and (max-width: 960px) {
-  header.header{
+  header.header .header-container{
     height: 52px;
   }
   .toggle-button {display: flex;}
-  .botao-do-aluno{display: none;}
   .pages-nav{display: none;}
-  .brand{height: 56px;}
-  .brand img{height: 32px;}
-  header.header.light .brand{
-    display: none;
+  .brand{
+    height: 48px;
+    margin: auto;
+    position: absolute;
+    left: 0;right: 0;
+  
   }
-  header.header.light{
-    position: absolute!important;
-  } 
+  .brand img{height: 32px;}
+  header.header.light .brand{display: none;}
+  header.header.light{ position: absolute!important;} 
 }
 
 </style>

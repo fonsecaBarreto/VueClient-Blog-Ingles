@@ -65,7 +65,8 @@ export default {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header" "content" "footer";
-  }
+
+    }
   .mainLayout header.header{ grid-area: header;}
   .mainLayout footer.footer{ grid-area: footer;}
   .mainLayout main.content{

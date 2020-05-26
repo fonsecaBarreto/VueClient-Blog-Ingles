@@ -1,5 +1,5 @@
 <template>
-  <button class="button-a" :style="{height:h}"
+  <button class="button-a" :style="{height:h,width:w}" @click="click()"
     :class="{primary,success,danger,round,project,w100}">
     <slot></slot>
   </button>
@@ -14,6 +14,7 @@ export default {
     project:Boolean,
     round:Boolean,
     w100:Boolean,
+    w:{type:String,default:"fit-content"},
     h:{type:String,default:"fit-content"}
   }
 }
@@ -22,10 +23,12 @@ export default {
 <style scoped>
 
   .button-a{
+    width: fit-content;
     border-radius: 2px;
-    padding: 6px 18px;
+    padding: 6px 20px;
     border: none;
     color: white;
+     white-space: nowrap;
     text-shadow: 0px 0px 8px #0003;
     box-shadow: 0px 0px 6px #0002;
     border-radius: 5px;

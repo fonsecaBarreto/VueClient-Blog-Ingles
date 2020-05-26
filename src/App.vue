@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="bd-blue">
     <router-view name="templatelayout" >
-      <vue-page-transition name="fade">
+     <!--  <vue-page-transition name="fade-in"> -->
         <router-view name="content" >
         </router-view>
-      </vue-page-transition>
+  <!--     </vue-page-transition> -->
     </router-view>
   </div>
 </template>
@@ -38,6 +38,8 @@ export default {
     height: 100vh;
     width: 100vw;
     overflow: auto;
+  
+    
   }
   .app-container{
     max-width: 1224px;

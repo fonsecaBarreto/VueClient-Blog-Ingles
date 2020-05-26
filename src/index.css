@@ -36,7 +36,20 @@
   transform: translateX(100%);
   opacity: 0;
 }
-
+/*  */
+.swipleft-enter-active,
+.swipleft-leave-active {
+  transition-duration: 0.23s;
+  transition-property: all;
+  transition-timing-function: ease; 
+  transform: translateX(0);
+}
+.swipleft-enter,
+.swipleft-leave-active {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+/*  */
 @font-face {
   font-family: "GothamMedium";
   src: url("./assets/GothamMedium.ttf");
@@ -57,15 +70,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  background: transparent;
+  width: 10px;
+  background: rgba(0,0,0,.1);
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccccccff;
+  background: rgb(194, 187, 187);
 }
 @media only screen and (max-width:960px){
   ::-webkit-scrollbar {
- 
     width: 5px;
   }
 }
@@ -73,7 +85,7 @@
 
 
 
-/*  .bd-red{border: solid 2px red;}
+/* .bd-red{border: solid 2px red;}
 .bd-green{border: dashed 2px green;}
 .bd-yellow{border: solid 3px yellow;}
 .bd-blue{border: solid 1px blue;}  

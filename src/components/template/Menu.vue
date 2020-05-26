@@ -3,20 +3,9 @@
 <transition name="fade">
   <div class="ovf" v-show="get_Menu">
 
-  <transition name="swipdown">
+  <transition name="swipleft">
       <nav class="menu bd-red" v-show="get_Menu">
-          <router-link to="/home"      class="menu-item bd-red">Inicio</router-link>
-          <router-link to="/exclusivo" class="menu-item">Exclusivo</router-link>
-          <router-link to="/curso"     class="menu-item">Curso</router-link>
-          <router-link to="/sobre"     class="menu-item">Sobre</router-link>
-          
-          <span class="menu-item">
-
-            <button-a project round 
-                @click.native="logmein()"
-                v-if="get_user === null " class="botao-do-aluno">Área do aluno
-            </button-a>
-          </span>
+          <PagesNav></PagesNav>
 
       </nav>
     </transition> 
@@ -25,11 +14,11 @@
 </template>
 
 <script>
-
+import PagesNav from "./PagesNav"
 import {mapGetters} from "vuex";
 import ButtonA from "../ButtonA"
 export default {
-  components:{ ButtonA},
+  components:{ ButtonA,PagesNav},
   computed:{...mapGetters(["get_Menu","get_user"])},
   methods:{
    logmein(){

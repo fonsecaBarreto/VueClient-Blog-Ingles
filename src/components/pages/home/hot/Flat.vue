@@ -47,7 +47,7 @@ export default {
     position: relative;
     background-color: rgba(255,255,255,.4);
     box-shadow: 0px 2px 5px #0001;
-    
+   
   }
   .flat::before{
     content: "";

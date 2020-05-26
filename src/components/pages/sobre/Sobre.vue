@@ -1,0 +1,23 @@
+<template>
+<div class="curso">
+  <div class="container  mb-5">
+      <h3 class="my-4 cabeca weight-bold">Quem é ele? Por que com Mathews Lins?</h3>
+    <div class="pl-1">
+
+      <p>Alguns j&aacute; me conheceram pela p&aacute;gina <a href="http://www.instagram.com/inglescommathews">www.instagram.com/inglescommathews</a>, l&aacute; eu falo sobre mim, mas aqui vou me apresentar melhor.</p>
+      <p>Eu comecei a estudar ingl&ecirc;s sozinho. Quando eu era pequeno, a internet era mais limitada e s&oacute; fui ter computador em casa por volta de 9 ou 10 anos. Por&eacute;m, o que despertou o meu interesse pela l&iacute;ngua inglesa foi o v&iacute;deo game. Na minha &eacute;poca os jogos n&atilde;o eram traduzidos, eu tinha que me virar para passar de fase e entender as instru&ccedil;&otilde;es. O mesmo aconteceu quando me interessei por guitarra.</p>
+      <p>Eu tamb&eacute;m sofri por n&atilde;o entender algumas coisas, me senti limitado com o pouco que era produzido em portugu&ecirc;s e ent&atilde;o comecei a aprender sozinho. Pesquisava as palavras no dicion&aacute;rio, ia me familiarizando com as estruturas at&eacute; que aos poucos eu ia entendendo os contextos e assim fui aprendendo. Todos os dias eu tinha contato com a l&iacute;ngua. Vieram as m&uacute;sicas e eu queria entender o que estava escutando. Ser&aacute; que de fato a m&uacute;sica era boa? S&oacute; conhecendo a letra para saber.</p>
+      <p>Quando ainda era adolescente, por volta de 15 anos, me pediram para dar aula de refor&ccedil;o de ingl&ecirc;s para os irm&atilde;os de uma amiga. J&aacute; comecei a fazer uma grana nessa &eacute;poca. E ent&atilde;o resolvi tentar um curso de ingl&ecirc;s para me aprimorar. Fiz o teste de nivelamento e nem sei quantas provas fiz naquele dia, pois passava em todas. Fui direcionado ao &uacute;ltimo ano do curso, basicamente s&oacute; para conseguir o certificado.</p>
+      <p>Antes mesmo de completar 18 anos eu j&aacute; estava lecionando em cursos de ingl&ecirc;s. Saber ingl&ecirc;s me sustentou por v&aacute;rios anos, eu trabalhava ensinando, cheguei a morar sozinho com esse sustento. Mas o meu ganho n&atilde;o foi s&oacute; financeiro. Conheci muita gente, tive boas oportunidades e no meu est&aacute;gio de engenharia eu quem acompanhava os gringos que visitavam a empresa. As pessoas n&atilde;o acreditavam que isso era poss&iacute;vel, mas eu j&aacute; tive 2 empregos home office em que eu tinha que falar totalmente em ingl&ecirc;s, emprego que n&atilde;o tinha a ver com a &aacute;rea da faculdade, at&eacute; porque ningu&eacute;m estava sendo empregado como engenheiro. Nesses empregos on-line eu recebia em torno de 250 d&oacute;lares por semana em um e 2000 euros em outro. Eu pude escolher em qual eu queria ficar. 😉</p>
+      <p>Com toda essa experi&ecirc;ncia eu percebi que muita gente tem ingl&ecirc;s no curr&iacute;culo, mas poucas realmente falam ou s&atilde;o fluentes. Eu me destacava em qualquer ambiente por ter conhecimentos que o ingl&ecirc;s me concedeu. N&atilde;o estou &ldquo;me achando&rdquo;, quem &eacute; fluente em ingl&ecirc;s sabe do que eu estou falando. Pela experi&ecirc;ncia de 12 anos ensinando ingl&ecirc;s eu tamb&eacute;m pude perceber que as pessoas n&atilde;o aprendem da mesma forma e cada uma tem uma facilidade diferente. Inclusive, foi poss&iacute;vel identificar que os alunos que se interessavam por assuntos relacionados a l&iacute;ngua quase n&atilde;o precisavam das aulas dos cursos.</p>
+      <p>Como assim quase n&atilde;o precisavam do curso? Porque &eacute; poss&iacute;vel aprender ingl&ecirc;s sozinho. Eu sou a prova disso. Voc&ecirc; j&aacute; deve ter ouvido falar de outra pessoa tamb&eacute;m, n&atilde;o? O ingl&ecirc;s aprendido desse modo n&atilde;o &eacute; esquecido. N&atilde;o corre o risco de &ldquo;n&atilde;o falar mais ingl&ecirc;s&rdquo; depois de um tempo que acabar o curso e nem precisa gastar rios de dinheiro com viagens internacionais para isso. Portanto, eu quero te ensinar o que voc&ecirc; precisa saber para se desenvolver.</p>
+      <p>As pessoas n&atilde;o sabem como come&ccedil;ar e eu resolvi ampliar esse direcionamento. Sou apaixonado pela l&iacute;ngua inglesa e quero que muitas outras pessoas alcancem a flu&ecirc;ncia e possam ter os benef&iacute;cios de falar outra l&iacute;ngua. N&atilde;o se trata s&oacute; de aprender ingl&ecirc;s, trata-se de crescer financeiramente, ampliar as oportunidades, elevar seu n&iacute;vel de cultura, ter mais autoconfian&ccedil;a e desenvolver seu c&eacute;rebro. Espero que voc&ecirc; tamb&eacute;m colha esses frutos!</p>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+</div>
+</template>
+<style >
+
+
+</style>
