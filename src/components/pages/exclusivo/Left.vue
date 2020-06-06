@@ -31,6 +31,10 @@ export default {
   },
   methods:{
     async success() {
+
+      this.$analytics.fbq.event('track', {content_name: 'Exclusivo'})
+
+
       await this.$swal("Well Done!", "E-mail Cadastrado com sucesso!", "success")
       window.location.href="https://www.mathewslins.com/home"
     },
@@ -38,9 +42,7 @@ export default {
         const err = await this.$store.dispatch('saveEmail',this.email)
         if(err) {
           if(!err.data) return await this.$swal("Hold your horses!", "error de conexão com o servidor", "error") 
-      
-          return await this.$swal("Hold your horses!", err.data.errors[0].msg, "error")
-          
+          return await this.$swal("Hold your horses!", err.data.errors[0].msg, "error") 
         }
         this.success();
     }

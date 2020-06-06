@@ -1,17 +1,20 @@
 export const layout = {
   state:{
-    lightMode:true,
+    lightMode:false,
+    chavosoMode:false,
     menu:false,
     loading:false,
   },
   getters:{
     get_loading:state=>state.loading,
     get_lightMode:(state)=>state.lightMode,
+    get_chavosoMode:(state)=>state.chavosoMode,
     get_Menu:(state)=>state.menu,
   },
   mutations:{
     set_loading:(state,v)=>state.loading=v,
     set_lightMode:(state,v)=>state.lightMode=v,
+    set_chavosoMode:(state,v)=>state.chavosoMode=v,
     set_Menu:(state,v)=>state.menu=v
   },actions:{
     toggleMenu({commit,state}){

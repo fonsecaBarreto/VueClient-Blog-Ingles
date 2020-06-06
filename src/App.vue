@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bd-blue">
+  <div id="app" class="">
     <router-view name="templatelayout" >
      <!--  <vue-page-transition name="fade-in"> -->
         <router-view name="content" >
@@ -38,8 +38,6 @@ export default {
     height: 100vh;
     width: 100vw;
     overflow: auto;
-  
-    
   }
   .app-container{
     max-width: 1224px;
@@ -48,6 +46,7 @@ export default {
   }
   @media screen and (max-width: 960px) {
     .app-container{
+      max-width: unset;
       padding: 0 8px;
     }
   }

@@ -1,16 +1,17 @@
 <template>
-  <button class="button-project" @click="click()">
+  <button class="button-project" @click="click()" :class="{secondary}">
     <slot></slot>
   </button>
 </template>
 
 <script>
 export default {
-methods:{
-  click(){
-    this.$emit("click")
+  props:{secondary:Boolean},
+  methods:{
+    click(){
+      this.$emit("click")
+    }
   }
-}
 }
 </script>
 
@@ -31,5 +32,8 @@ methods:{
 
   .button-project:hover{ background: rgb(23, 54, 121); }
   .button-project:active{ background: rgb(34, 74, 161); }
-  
+
+  .button-project.secondary{background-color: rgb(202, 13, 29)};
+  .button-project.secondary:active{background-color:rgb(189, 13, 13);}
+
 </style>

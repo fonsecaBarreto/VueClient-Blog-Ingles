@@ -1,6 +1,6 @@
 :root {
   --primary-color: #193D89;
-  --second-color: #E41311;
+  --second-color: #C01A10;
   --third-color: #27BBE0;
 }
 .unselectable {
@@ -83,10 +83,9 @@
 }
 
 
-
-
-/* .bd-red{border: solid 2px red;}
+ 
+/*  .bd-red{border: solid 2px red;}
 .bd-green{border: dashed 2px green;}
 .bd-yellow{border: solid 3px yellow;}
-.bd-blue{border: solid 1px blue;}  
- */
+.bd-blue{border: solid 1px blue;}   
+   */

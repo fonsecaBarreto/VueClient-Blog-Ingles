@@ -1,32 +1,33 @@
 <template>
-  <header class="header" :class="{light,'whiterize':get_Menu}">
+  <header class="header" :class="{light,chavoso,'whiterize':get_Menu}">
     <div class="app-container">
       
     
-    <div class="header-container bd-red">
+    <div class="header-container ">
 
-        <div class="toggle-button bd-red" @click='toggleMenu()'>
-          <font-awesome-icon icon="bars"></font-awesome-icon>
-        </div>
+       
+        <toggle-button @toggleButton="toggleMenu()"></toggle-button>
    
-      
         <div class="brand" href="">
           <router-link to="/">
             <img class="" src="../../assets/logo.png" alt="">
           </router-link>
         </div>
 
-        <nav class="right-nav bd-red">
-          <pages-nav class="pages-nav mr-4" :white="light"></pages-nav>
-          
+        <nav class="right-nav ">
 
-          <project-button  class="" v-if="get_user === null "  @click="logmein()">
+          <project-button secondary v-if="chavoso == true && get_screenWidth > 756" >
+            <span>Assine</span>
+          </project-button> 
+
+          <pages-nav class="pages-nav mx-4" :white="chavoso"></pages-nav>
+          
+          <project-button  class="" v-if="get_user === null && chavoso == false"  @click="logmein()">
             <span v-if="get_screenWidth > 960">Área do aluno </span>
             <font-awesome-icon icon="user" v-if="get_screenWidth < 960"></font-awesome-icon>
           </project-button> 
-
-
-          <div v-if="get_user !== null " class="dropbox-field">
+      
+          <div v-if="get_user !== null && chavoso == false" class="dropbox-field">
               <profile-avatar :user="get_user"></profile-avatar>
               <drop-down >
                 <router-link to="/logout">logout</router-link>
@@ -48,10 +49,12 @@ import DropDown from "../utils/Dropdown"
 import ImageVp from "../utils/ImageVp"
 import PagesNav from "./PagesNav"
 import ProfileAvatar from "../utils/ProfileAvatar"
+import ToggleButton from "./ToggleButton"
 export default {
-  components:{ProjectButton,DropDown,ImageVp,PagesNav,ProfileAvatar},
+  components:{ProjectButton,DropDown,ImageVp,PagesNav,ProfileAvatar,ToggleButton},
   props:{
-    light:{type:Boolean,default:false}
+    light:{type:Boolean,default:false},
+    chavoso:{type:Boolean,default:false},
   },
   computed:{...mapGetters(["get_user","get_Menu","get_screenWidth"])},
   methods:{
@@ -68,15 +71,66 @@ export default {
 
 <style scoped>
 /* header */
-header.header{
-  height: fit-content;
-  background-color: rgb(240, 240, 240);
-  box-shadow:  0px 2px 8px #0001;
-  border-bottom: solid 1px #ddd;
-  position: relative;
-  transition:  width .12s;;
-  z-index: 999;
-}
+  header.header{
+    height: fit-content;
+    background-color: rgb(240, 240, 240);
+    box-shadow:  0px 2px 8px #0001;
+    border-bottom: solid 1px #ddd;
+    position: relative;
+    transition:  width .22s;;
+    z-index: 999;
+  }
+  .header-container{
+    height: 72px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 16px;
+  }
+  /*  right*/
+  .right-nav{
+    width: fit-content;
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
+    align-items: center;
+  }
+
+
+  
+  .notifications-icon{
+    height: 48px;
+    width: 48px;
+
+    padding: 16px;
+    color: #666!important;
+  }
+  .dropbox-field{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  /*  */
+  .brand{
+    height: 64px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .brand img{
+    height: 48px;
+      -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+/* light */
 header.header.light.whiterize{background-color: rgb(240, 240, 240);}
 header.header.light{
   width: 100%;
@@ -84,82 +138,29 @@ header.header.light{
   box-shadow:  none;
   border: none;
 } 
-.header-container{
-  height: 70px;
-  display: flex;
+/* chavoso */
+header.header.chavoso{
   width: 100%;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 16px;
-}
-/*  right*/
-.right-nav{
-  width: fit-content;
-  display: flex;
-  margin-right: 0;
-  margin-left: auto;
-  align-items: center;
-}
+  background-color: var(--primary-color);
+  box-shadow:  none;
+  border: none;
 
-.toggle-button {
-  height: 42px;
-  width:42px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4em;
-  color:#222;
-  display: none;
-  border-radius: 4px;
-  transition: all .06s;
-}
-.toggle-button:hover{color: #444;}
-.toggle-button:active{color: white;background-color: rgba(0,0,0,.7);}
-.notifications-icon{
-  height: 48px;
-  width: 48px;
-
-  padding: 16px;
-  color: #666!important;
-}
-.dropbox-field{
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-/*  */
-.brand{
-  height: 64px;
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.brand img{
-  height: 50px;
-    -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
+} 
+header.header.chavoso .header-container{
+   height: 110px;
+} 
 @media screen and (max-width: 960px) {
   header.header .header-container{
-    height: 52px;
+    height: 52px!important;
   }
+ 
   .toggle-button {display: flex;}
   .pages-nav{display: none;}
   .brand{
-    height: 48px;
+    height: 46px;
     margin: auto;
     position: absolute;
     left: 0;right: 0;
-  
   }
   .brand img{height: 32px;}
   header.header.light .brand{display: none;}

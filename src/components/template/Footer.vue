@@ -2,7 +2,7 @@
   
   <footer class="footer" :class="{light}">
     <div class="app-container">
-      <div class="footer-flow bd-red">
+      <div class="footer-flow">
           <img src="../../assets/logo.png" alt="" v-if="!light">
           <div class="d-flex">
 

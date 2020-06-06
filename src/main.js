@@ -13,9 +13,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from "./config/store/store"
 import router from "./config/router"
-import VuePageTransition from 'vue-page-transition'
+/* import VuePageTransition from 'vue-page-transition'
+Vue.use(VuePageTransition) */
 
-Vue.use(VuePageTransition)
+import VueFacebookPixel from 'vue-analytics-facebook-pixel'
+Vue.use(VueFacebookPixel);
+Vue.analytics.fbq.init('3041038032616860');
+
+
+
+new Vue({
+  router,store,
+  render: h => h(App),
+}).$mount('#app')
+
 Vue.filter("dateformat",
     (dataInput)=>{
       const data = new Date(dataInput);
@@ -23,7 +34,3 @@ Vue.filter("dateformat",
       return dataFormatada
     }
   )
-new Vue({
-  router,store,
-  render: h => h(App),
-}).$mount('#app')
